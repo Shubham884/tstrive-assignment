@@ -1,5 +1,5 @@
-import { sourceData } from '../../utils/data'
-import '../../App.css';
+import { sourceData } from '../utils/data'
+import './Menu.css';
 
 const PrepareJobRoles = ({ data }) => {
     const jobRoles = data.map(item => {
@@ -13,10 +13,12 @@ const PrepareJobRoles = ({ data }) => {
     return <ul>{jobRoles}</ul>
 }
 
-const Tree = () => {
-    const uniqSectors = [...new Set(sourceData.map(({ sector_name }) => sector_name))]
+const MatchedChildern = ({ clusterName }) => {
+    const matchedCluseter = sourceData.filter(item => item.career_cluster === clusterName)
+    const uniqSectors = [...new Set(matchedCluseter.map(({ sector_name }) => sector_name))]
+
     const childrenAndGChildren = uniqSectors.map((item, index) => {
-        const matchedData = sourceData.filter(element => element.sector_name === item)
+        const matchedData = matchedCluseter.filter(element => element.sector_name === item)
         return (
             <li key={index}>
                 <a
@@ -33,13 +35,24 @@ const Tree = () => {
         )
     })
 
+    return <ul>{childrenAndGChildren}</ul>
+}
+
+const Tree = () => {
+    const uniqCareerClusters = [...new Set(sourceData.map(({ career_cluster }) => career_cluster))]
+    const data = uniqCareerClusters.map((item, index) => {
+        return (
+            <li key={index}>
+                <a href="#">{item}</a>
+                <MatchedChildern clusterName={item} />
+            </li>
+        )
+    })
+
     return (
         <div id="menu">
             <ul>
-                <li>
-                    <a href="#">{sourceData[0].career_cluster}</a>
-                    <ul>{childrenAndGChildren}</ul>
-                </li>
+                {data}
             </ul>
         </div>
     )
