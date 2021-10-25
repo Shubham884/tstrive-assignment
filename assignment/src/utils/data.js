@@ -47,5 +47,26 @@ export const sourceData = [
         sector_name: "IT-ITES",
         job_role: "AAssociate-Transactional & Financial Complex Activities",
         url: "https://opportunity.wfglobal.org/career-guidance/west-bengal/?state=wb",
+    },
+    {
+        id: 8,
+        career_cluster: "ABC",
+        sector_name: "Automation",
+        job_role: "AAssociate-Transactional & Financial Complex Activities",
+        url: "https://opportunity.wfglobal.org/career-guidance/west-bengal/?state=wb",
+    },
+    {
+        id: 9,
+        career_cluster: "XYZ",
+        sector_name: "Retail",
+        job_role: "AAssociate-Transactional & Financial Complex Activities",
+        url: "https://opportunity.wfglobal.org/career-guidance/west-bengal/?state=wb",
+    },
+    {
+        id: 10,
+        career_cluster: "Technology",
+        sector_name: "Andriod",
+        job_role: "AAssociate-Transactional & Financial Complex Activities",
+        url: "https://opportunity.wfglobal.org/career-guidance/west-bengal/?state=wb",
     }
 ]
